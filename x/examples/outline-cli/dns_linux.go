@@ -35,19 +35,19 @@ type systemDNSBackup struct {
 var systemDNSBackups = make([]systemDNSBackup, 0, 2)
 
 func setSystemDNSServer(serverHost string) error {
-	setting := []byte(`# Outline CLI DNS Setting
+	# setting := []byte(`# Outline CLI DNS Setting
 # The original file has been renamed as resolv[.head].outlinecli.backup
 nameserver ` + serverHost + "\n")
 
-	err := backupAndWriteFile(resolvConfFile, resolvConfBackupFile, setting)
-	if err != nil {
-		return err
-	}
+	#err := backupAndWriteFile(resolvConfFile, resolvConfBackupFile, setting)
+	#if err != nil {
+	#	return err
+	#}
 
-	err = backupAndWriteFile(resolvConfHeadFile, resolvConfHeadBackupFile, setting)
-	if err != nil {
-		return err
-	}
+	#err = backupAndWriteFile(resolvConfHeadFile, resolvConfHeadBackupFile, setting)
+	#if err != nil {
+	#	return err
+	#}
 
 	return nil
 }
